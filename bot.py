@@ -3,7 +3,7 @@ from time import sleep
 from sys import exit
 from os import environ
 from event import Event
-from commands.commands import commands
+from addons.commands import commands_ref
 
 class Bot(object):
     def __init__(self):
@@ -137,10 +137,9 @@ class Bot(object):
                     if(self.mentioned(event.text)):
                         command = self._getCommand(event.text)
                         print('{}: {}({}) - command={}'.format(event.formattedTime(), self.lookup(event.who), event.who, command))
-                        #print(event.getUTC() + ' ' + self.lookup(event.who) + '(' + event.who + ') - command:', command)
                         if(command):
-                            if(command in commands):
-                                commands[command](self, event)
+                            if(command in commands_ref):
+                                commands_ref[command](self, event)
                             else:
                                 self.message('?', event.where)
                                 print('command not found')

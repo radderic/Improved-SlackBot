@@ -1,5 +1,8 @@
 
 def echo(bot, event):
+    """
+    Repeats users text - usage: @[bot] echo [text]
+    """
     parsed_text = event.text.split(' ', 2)
 
     #check for text after echo command
