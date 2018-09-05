@@ -2,7 +2,7 @@ from slackclient import SlackClient
 from time import sleep
 from sys import exit
 from os import environ
-from commands.event import Event
+from event import Event
 from commands.commands import commands
 
 class Bot(object):
