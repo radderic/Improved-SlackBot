@@ -103,7 +103,12 @@ class Bot(object):
                 user=who
         )
         if(data):
-            return data['user']['profile']['display_name']
+            try:
+                displayName = data['user']['profile']['display_name']
+                return displayName
+            except Exception as e:
+                print('Failed to get display name for user {}'.format(who))
+                return 'UNKNOWN'
         else:
             return None
 
